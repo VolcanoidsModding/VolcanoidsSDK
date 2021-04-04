@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>VolcanoidsSDK</id>
+    <version>1.0.0</version>
+    <title>$title$</title>
+    <authors>MelodicAlbuild, LordGregory</authors>
+    <projectUrl>https://modding.melodicalbuild.me</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <description>The Volcanoids Modding SDK for usage in creating your own mods.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright © 2021</copyright>
+    <tags>Volcanoids Modding SDK</tags>
+  </metadata>
+</package>
