@@ -9,11 +9,21 @@
     <Copyright>Copyright © 2021</Copyright>
     <PackageProjectUrl>https://modding.melodicalbuild.me</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.2</Version>
+    <PackageReleaseNotes>Added Category Creation
+Added Category Type Enums
+Remodeled Category Usage Across the SDK
+Migrated All Functions to VolcanoidsSDK.Functions</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\VolcanoidsSDK.xml</DocumentationFile>
     <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\ralex\source\repos\VolcanoidsSDK\VolcanoidsSDK\VolcanoidsSDK.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,6 +2,7 @@
 using UnityEngine;
 using VolcanoidsSDK.lib;
 using VolcanoidsSDK.lib.scripts;
+using static VolcanoidsSDK.lib.classes.Enums;
 
 namespace VolcanoidsSDK
 {
@@ -172,6 +173,62 @@ namespace VolcanoidsSDK
             Sprite icon = SpriteGenerator.GenerateSprite(iconPath);
             RecipeCategory[] categories = GenerateCategories.GenerateCategoryArray(categoryList);
             Station.CreateStation(factoryType, codename, maxStack, name, desc, guidString, icon, variantname, categories);
+        }
+
+        ///-------------------------------------------------------------------------------------------------
+        /// <summary>   Creates a Category. </summary>
+        ///
+        /// <remarks>   MelodicAlbuild, 4/4/2021. </remarks>
+        ///
+        /// <param name="categoryName">     Category Name </param>
+        /// <param name="categoryId">       The String ID of your Category. </param>
+        /// <param name="categoryType">     The Type of Category you are Creating, Found in VolcanoidsSDK.lib.classes.Enums </param>
+        ///-------------------------------------------------------------------------------------------------
+        public void CreateCategory(string categoryName, string categoryId, CategoryTypes categoryType)
+        {
+            if(categoryType == CategoryTypes.Factory)
+            {
+                Category.CreateFactoryCategory(categoryName, categoryId);
+            } else if(categoryType == CategoryTypes.Module)
+            {
+                Category.CreateModuleCategory(categoryName, categoryId);
+            }
+            else if (categoryType == CategoryTypes.Recipe)
+            {
+                Category.CreateRecipeCategory(categoryName, categoryId);
+            } else
+            {
+                throw new ArgumentException("Create Category Requires a Valid CategoryTypes Enum from VolcanoidsSDK.lib.classes.Enums");
+            }
+        }
+
+        ///-------------------------------------------------------------------------------------------------
+        /// <summary>   Creates a Category. </summary>
+        ///
+        /// <remarks>   MelodicAlbuild, 4/4/2021. </remarks>
+        ///
+        /// <param name="categoryName">     Category Name </param>
+        /// <param name="categoryId">       The GUID ID of your Category. </param>
+        /// <param name="categoryType">     The Type of Category you are Creating, Found in VolcanoidsSDK.lib.classes.Enums </param>
+        ///-------------------------------------------------------------------------------------------------
+        public void CreateCategory(string categoryName, GUID categoryId, CategoryTypes categoryType)
+        {
+            if (categoryType == CategoryTypes.Factory)
+            {
+                Category.CreateFactoryCategory(categoryName, categoryId);
+            }
+            else if (categoryType == CategoryTypes.Module)
+            {
+                Category.CreateModuleCategory(categoryName, categoryId);
+            }
+            else if (categoryType == CategoryTypes.Recipe)
+            {
+                Category.CreateRecipeCategory(categoryName, categoryId);
+            }
+            else
+            {
+                throw new ArgumentException("Create Category Requires a Valid CategoryTypes Enum from VolcanoidsSDK.lib.classes.Enums");
+            }
         }
     }
 }
