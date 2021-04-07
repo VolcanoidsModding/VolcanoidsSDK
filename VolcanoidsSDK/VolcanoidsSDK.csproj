@@ -9,12 +9,11 @@
     <Copyright>Copyright © 2021</Copyright>
     <PackageProjectUrl>https://modding.melodicalbuild.me</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.2</Version>
-    <PackageReleaseNotes>Added Category Creation
-Added Category Type Enums
-Remodeled Category Usage Across the SDK
-Migrated All Functions to VolcanoidsSDK.Functions</PackageReleaseNotes>
+    <Version>1.0.3</Version>
+    <PackageReleaseNotes>We have an Icon!
+Also Docs are Underway</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>ModdingCOG.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -278,6 +277,13 @@ Migrated All Functions to VolcanoidsSDK.Functions</PackageReleaseNotes>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\UnityEngine.XRModule.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="lib\assets\ModdingCOG.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

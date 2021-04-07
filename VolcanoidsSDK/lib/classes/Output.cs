@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VolcanoidsSDK.lib.classes
+﻿namespace VolcanoidsSDK.lib.classes
 {
     ///-------------------------------------------------------------------------------------------------
     /// <summary>   Output Typing Class. </summary>

@@ -7,7 +7,7 @@ using static VolcanoidsSDK.lib.classes.Enums;
 namespace VolcanoidsSDK
 {
     ///-------------------------------------------------------------------------------------------------
-    /// <summary> The Volcanoids Modding SDK Version 1.0.0. </summary>
+    /// <summary> The Volcanoids Modding SDK </summary>
     ///
     /// <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
     ///-------------------------------------------------------------------------------------------------
@@ -37,10 +37,12 @@ namespace VolcanoidsSDK
             if (name == null)
             {
                 throw new ArgumentException("The SDK Requires an App Name and Identifier for it to run correctly.");
-            } else if(appIdentifier == null)
+            }
+            else if (appIdentifier == null)
             {
                 throw new ArgumentException("The SDK Requires an App Name and Identifier for it to run correctly.");
-            } else
+            }
+            else
             {
                 Enabled = true;
             }
@@ -48,9 +50,9 @@ namespace VolcanoidsSDK
     }
 
     ///-------------------------------------------------------------------------------------------------
-    /// <summary> The Volcanoids SDK Functions Version 1.0.0. </summary>
+    /// <summary> The Volcanoids SDK Functions </summary>
     ///
-    /// <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
+    /// <remarks>   MelodicAlbuild, 4/4/2021. </remarks>
     ///-------------------------------------------------------------------------------------------------
 
     public class Functions
@@ -79,15 +81,22 @@ namespace VolcanoidsSDK
 
         public void CreateModule(string codename, string variantname, int maxstack, string baseitem, LocalizedString name, LocalizedString desc, string guidstring, string categoryname, string factorytypename, string iconPath, string[] categoryList, bool looping)
         {
-            Sprite icon = SpriteGenerator.GenerateSprite(iconPath);
-            RecipeCategory[] categories = GenerateCategories.GenerateCategoryArray(categoryList);
-            if (looping)
+            if (SDK.Enabled)
             {
-                Module.CreateProductionModule(codename, variantname, maxstack, baseitem, name, desc, guidstring, categoryname, factorytypename, icon, categories, true);
+                Sprite icon = SpriteGenerator.GenerateSprite(iconPath);
+                RecipeCategory[] categories = GenerateCategories.GenerateCategoryArray(categoryList);
+                if (looping)
+                {
+                    Module.CreateProductionModule(codename, variantname, maxstack, baseitem, name, desc, guidstring, categoryname, factorytypename, icon, categories, true);
+                }
+                else
+                {
+                    Module.CreateProductionModule(codename, variantname, maxstack, baseitem, name, desc, guidstring, categoryname, factorytypename, icon, categories);
+                }
             }
             else
             {
-                Module.CreateProductionModule(codename, variantname, maxstack, baseitem, name, desc, guidstring, categoryname, factorytypename, icon, categories);
+                throw new AccessViolationException("Method Usage is Denied unless you Enable the SDK. Refer to https://sdk.melodicalbuild.me/");
             }
         }
 
@@ -107,8 +116,15 @@ namespace VolcanoidsSDK
 
         public void CreateItem(string codename, int maxstack, LocalizedString name, LocalizedString desc, string guidstring, string recipecategoryname, string iconPath)
         {
-            Sprite icon = SpriteGenerator.GenerateSprite(iconPath);
-            Item.CreateItem(codename, maxstack, name, desc, guidstring, recipecategoryname, icon);
+            if (SDK.Enabled)
+            {
+                Sprite icon = SpriteGenerator.GenerateSprite(iconPath);
+                Item.CreateItem(codename, maxstack, name, desc, guidstring, recipecategoryname, icon);
+            }
+            else
+            {
+                throw new AccessViolationException("Method Usage is Denied unless you Enable the SDK. Refer to https://sdk.melodicalbuild.me/");
+            }
         }
 
         ///-------------------------------------------------------------------------------------------------
@@ -126,7 +142,14 @@ namespace VolcanoidsSDK
 
         public void CreateDeposit(bool Underground, int PercentageToReplace, string outputname, float minyield, float maxyield, string ItemToReplace)
         {
-            Deposit.CreateDeposit(Underground, PercentageToReplace, outputname, minyield, maxyield, ItemToReplace);
+            if (SDK.Enabled)
+            {
+                Deposit.CreateDeposit(Underground, PercentageToReplace, outputname, minyield, maxyield, ItemToReplace);
+            }
+            else
+            {
+                throw new AccessViolationException("Method Usage is Denied unless you Enable the SDK. Refer to https://sdk.melodicalbuild.me/");
+            }
         }
 
         ///-------------------------------------------------------------------------------------------------
@@ -147,7 +170,14 @@ namespace VolcanoidsSDK
 
         public void CreateRecipe(string recipeName, lib.classes.Input[] inputs, lib.classes.Output[] outputs, string baseRecipe, string itemId, string[] requiredItems, string recipeCategory)
         {
-            RecipeCreator.CreateRecipe(recipeName, inputs, outputs, baseRecipe, itemId, requiredItems, recipeCategory);
+            if (SDK.Enabled)
+            {
+                RecipeCreator.CreateRecipe(recipeName, inputs, outputs, baseRecipe, itemId, requiredItems, recipeCategory);
+            }
+            else
+            {
+                throw new AccessViolationException("Method Usage is Denied unless you Enable the SDK. Refer to https://sdk.melodicalbuild.me/");
+            }
         }
 
         ///-------------------------------------------------------------------------------------------------
@@ -169,10 +199,17 @@ namespace VolcanoidsSDK
 
         public void CreateStation(string factoryTypeName, string codename, int maxStack, LocalizedString name, LocalizedString desc, string guidString, string iconPath, string variantname, string[] categoryList)
         {
-            FactoryType factoryType = FindFactoryCategories.FindFactoryNames(factoryTypeName);
-            Sprite icon = SpriteGenerator.GenerateSprite(iconPath);
-            RecipeCategory[] categories = GenerateCategories.GenerateCategoryArray(categoryList);
-            Station.CreateStation(factoryType, codename, maxStack, name, desc, guidString, icon, variantname, categories);
+            if (SDK.Enabled)
+            {
+                FactoryType factoryType = FindFactoryCategories.FindFactoryNames(factoryTypeName);
+                Sprite icon = SpriteGenerator.GenerateSprite(iconPath);
+                RecipeCategory[] categories = GenerateCategories.GenerateCategoryArray(categoryList);
+                Station.CreateStation(factoryType, codename, maxStack, name, desc, guidString, icon, variantname, categories);
+            }
+            else
+            {
+                throw new AccessViolationException("Method Usage is Denied unless you Enable the SDK. Refer to https://sdk.melodicalbuild.me/");
+            }
         }
 
         ///-------------------------------------------------------------------------------------------------
@@ -186,19 +223,28 @@ namespace VolcanoidsSDK
         ///-------------------------------------------------------------------------------------------------
         public void CreateCategory(string categoryName, string categoryId, CategoryTypes categoryType)
         {
-            if(categoryType == CategoryTypes.Factory)
+            if (SDK.Enabled)
             {
-                Category.CreateFactoryCategory(categoryName, categoryId);
-            } else if(categoryType == CategoryTypes.Module)
-            {
-                Category.CreateModuleCategory(categoryName, categoryId);
+                if (categoryType == CategoryTypes.Factory)
+                {
+                    Category.CreateFactoryCategory(categoryName, categoryId);
+                }
+                else if (categoryType == CategoryTypes.Module)
+                {
+                    Category.CreateModuleCategory(categoryName, categoryId);
+                }
+                else if (categoryType == CategoryTypes.Recipe)
+                {
+                    Category.CreateRecipeCategory(categoryName, categoryId);
+                }
+                else
+                {
+                    throw new ArgumentException("Create Category Requires a Valid CategoryTypes Enum from VolcanoidsSDK.lib.classes.Enums");
+                }
             }
-            else if (categoryType == CategoryTypes.Recipe)
+            else
             {
-                Category.CreateRecipeCategory(categoryName, categoryId);
-            } else
-            {
-                throw new ArgumentException("Create Category Requires a Valid CategoryTypes Enum from VolcanoidsSDK.lib.classes.Enums");
+                throw new AccessViolationException("Method Usage is Denied unless you Enable the SDK. Refer to https://sdk.melodicalbuild.me/");
             }
         }
 
@@ -213,21 +259,28 @@ namespace VolcanoidsSDK
         ///-------------------------------------------------------------------------------------------------
         public void CreateCategory(string categoryName, GUID categoryId, CategoryTypes categoryType)
         {
-            if (categoryType == CategoryTypes.Factory)
+            if (SDK.Enabled)
             {
-                Category.CreateFactoryCategory(categoryName, categoryId);
-            }
-            else if (categoryType == CategoryTypes.Module)
-            {
-                Category.CreateModuleCategory(categoryName, categoryId);
-            }
-            else if (categoryType == CategoryTypes.Recipe)
-            {
-                Category.CreateRecipeCategory(categoryName, categoryId);
+                if (categoryType == CategoryTypes.Factory)
+                {
+                    Category.CreateFactoryCategory(categoryName, categoryId);
+                }
+                else if (categoryType == CategoryTypes.Module)
+                {
+                    Category.CreateModuleCategory(categoryName, categoryId);
+                }
+                else if (categoryType == CategoryTypes.Recipe)
+                {
+                    Category.CreateRecipeCategory(categoryName, categoryId);
+                }
+                else
+                {
+                    throw new ArgumentException("Create Category Requires a Valid CategoryTypes Enum from VolcanoidsSDK.lib.classes.Enums");
+                }
             }
             else
             {
-                throw new ArgumentException("Create Category Requires a Valid CategoryTypes Enum from VolcanoidsSDK.lib.classes.Enums");
+                throw new AccessViolationException("Method Usage is Denied unless you Enable the SDK. Refer to https://sdk.melodicalbuild.me/");
             }
         }
     }
