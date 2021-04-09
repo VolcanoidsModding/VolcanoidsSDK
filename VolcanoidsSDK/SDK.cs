@@ -15,7 +15,7 @@ namespace VolcanoidsSDK
     public class SDK
     {
         /// <summary>   (Immutable) If the SDK was able to be Enabled </summary>
-        public static bool Enabled = false;
+        public bool Enabled = false;
 
         /// <summary>   (Immutable) Unique ModID, Make a note of this. </summary>
         public static string ModID = "";
@@ -57,6 +57,20 @@ namespace VolcanoidsSDK
 
     public class Functions
     {
+        private bool Enabled = false;
+
+        ///-------------------------------------------------------------------------------------------------
+        /// <summary>   Inits the Functions from your SDK </summary>
+        ///
+        /// <remarks>   MelodicAlbuild, 4/8/2021. </remarks>
+        ///
+        /// <param name="sdk">             The SDK Main File you Initiated </param>
+        ///-------------------------------------------------------------------------------------------------
+        public Functions(SDK sdk)
+        {
+            Enabled = sdk.Enabled;
+        }
+
         ///-------------------------------------------------------------------------------------------------
         /// <summary>   Creates a Module. </summary>
         ///
@@ -81,7 +95,7 @@ namespace VolcanoidsSDK
 
         public void CreateModule(string codename, string variantname, int maxstack, string baseitem, LocalizedString name, LocalizedString desc, string guidstring, string categoryname, string factorytypename, string iconPath, string[] categoryList, bool looping)
         {
-            if (SDK.Enabled)
+            if (Enabled)
             {
                 Sprite icon = SpriteGenerator.GenerateSprite(iconPath);
                 RecipeCategory[] categories = GenerateCategories.GenerateCategoryArray(categoryList);
@@ -116,7 +130,7 @@ namespace VolcanoidsSDK
 
         public void CreateItem(string codename, int maxstack, LocalizedString name, LocalizedString desc, string guidstring, string recipecategoryname, string iconPath)
         {
-            if (SDK.Enabled)
+            if (Enabled)
             {
                 Sprite icon = SpriteGenerator.GenerateSprite(iconPath);
                 Item.CreateItem(codename, maxstack, name, desc, guidstring, recipecategoryname, icon);
@@ -142,7 +156,7 @@ namespace VolcanoidsSDK
 
         public void CreateDeposit(bool Underground, int PercentageToReplace, string outputname, float minyield, float maxyield, string ItemToReplace)
         {
-            if (SDK.Enabled)
+            if (Enabled)
             {
                 Deposit.CreateDeposit(Underground, PercentageToReplace, outputname, minyield, maxyield, ItemToReplace);
             }
@@ -170,7 +184,7 @@ namespace VolcanoidsSDK
 
         public void CreateRecipe(string recipeName, lib.classes.Input[] inputs, lib.classes.Output[] outputs, string baseRecipe, string itemId, string[] requiredItems, string recipeCategory)
         {
-            if (SDK.Enabled)
+            if (Enabled)
             {
                 RecipeCreator.CreateRecipe(recipeName, inputs, outputs, baseRecipe, itemId, requiredItems, recipeCategory);
             }
@@ -199,7 +213,7 @@ namespace VolcanoidsSDK
 
         public void CreateStation(string factoryTypeName, string codename, int maxStack, LocalizedString name, LocalizedString desc, string guidString, string iconPath, string variantname, string[] categoryList)
         {
-            if (SDK.Enabled)
+            if (Enabled)
             {
                 FactoryType factoryType = FindFactoryCategories.FindFactoryNames(factoryTypeName);
                 Sprite icon = SpriteGenerator.GenerateSprite(iconPath);
@@ -223,7 +237,7 @@ namespace VolcanoidsSDK
         ///-------------------------------------------------------------------------------------------------
         public void CreateCategory(string categoryName, string categoryId, CategoryTypes categoryType)
         {
-            if (SDK.Enabled)
+            if (Enabled)
             {
                 if (categoryType == CategoryTypes.Factory)
                 {
@@ -259,7 +273,7 @@ namespace VolcanoidsSDK
         ///-------------------------------------------------------------------------------------------------
         public void CreateCategory(string categoryName, GUID categoryId, CategoryTypes categoryType)
         {
-            if (SDK.Enabled)
+            if (Enabled)
             {
                 if (categoryType == CategoryTypes.Factory)
                 {

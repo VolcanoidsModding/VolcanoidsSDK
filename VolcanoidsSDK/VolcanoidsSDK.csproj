@@ -7,13 +7,15 @@
     <Product>Volcanoids Modding SDK</Product>
     <Description>The Volcanoids Modding SDK for usage in creating your own mods.</Description>
     <Copyright>Copyright © 2021</Copyright>
-    <PackageProjectUrl>https://modding.melodicalbuild.me</PackageProjectUrl>
+    <PackageProjectUrl>https://sdk.melodicalbuild.me</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.3</Version>
-    <PackageReleaseNotes>We have an Icon!
-Also Docs are Underway</PackageReleaseNotes>
+    <Version>1.0.4</Version>
+    <PackageReleaseNotes>Fixed the Functions Build so it works.
+Allowed the Usage of Functional Commands
+SDK is now Enabled!</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>ModdingCOG.png</PackageIcon>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

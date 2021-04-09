@@ -434,7 +434,7 @@
         </member>
         <member name="T:VolcanoidsSDK.SDK">
             -------------------------------------------------------------------------------------------------
-             <summary> The Volcanoids Modding SDK Version 1.0.0. </summary>
+             <summary> The Volcanoids Modding SDK </summary>
             
              <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
             -------------------------------------------------------------------------------------------------
@@ -460,9 +460,18 @@
         </member>
         <member name="T:VolcanoidsSDK.Functions">
             -------------------------------------------------------------------------------------------------
-             <summary> The Volcanoids SDK Functions Version 1.0.0. </summary>
+             <summary> The Volcanoids SDK Functions </summary>
             
-             <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
+             <remarks>   MelodicAlbuild, 4/4/2021. </remarks>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:VolcanoidsSDK.Functions.#ctor(VolcanoidsSDK.SDK)">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Inits the Functions from your SDK </summary>
+            
+             <remarks>   MelodicAlbuild, 4/8/2021. </remarks>
+            
+             <param name="sdk">             The SDK Main File you Initiated </param>
             -------------------------------------------------------------------------------------------------
         </member>
         <member name="M:VolcanoidsSDK.Functions.CreateModule(System.String,System.String,System.Int32,System.String,LocalizedString,LocalizedString,System.String,System.String,System.String,System.String,System.String[],System.Boolean)">
