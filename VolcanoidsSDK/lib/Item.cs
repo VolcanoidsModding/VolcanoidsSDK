@@ -66,5 +66,42 @@ namespace VolcanoidsSDK.lib
             AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = item, Guid = guid, Labels = new string[0] } };
             RuntimeAssetStorage.Add(assets, default);
         }
+
+        ///-------------------------------------------------------------------------------------------------
+        /// <summary>   Creates an item. </summary>
+        ///
+        /// <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
+        ///
+        /// <param name="codename">             The codename. </param>
+        /// <param name="maxstack">             The maxstack. </param>
+        /// <param name="name">                 The name. </param>
+        /// <param name="desc">                 The description. </param>
+        /// <param name="guidstring">           The guidstring. </param>
+        /// <param name="recipecategoryname">   The recipecategoryname. </param>
+        /// <param name="icon">                 The icon. </param>
+        ///-------------------------------------------------------------------------------------------------
+
+        public static void CreateItem(string codename, int maxstack, LocalizedString name, LocalizedString desc, GUID guidstring, string recipecategoryname, Sprite icon)
+        {
+            var recipecategory = GameResources.Instance.Items.FirstOrDefault(s => s.name == recipecategoryname);
+
+            var item = ScriptableObject.CreateInstance<ItemDefinition>();
+            item.name = codename;
+            item.Category = recipecategory.Category;
+            item.MaxStack = maxstack;
+            item.Icon = icon;
+            LocalizedString nameStr = name;
+            LocalizedString descStr = desc;
+            Initialize(ref nameStr);
+            Initialize(ref descStr);
+
+            typeof(ItemDefinition).GetField("m_name", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(item, nameStr);
+            typeof(ItemDefinition).GetField("m_description", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(item, descStr);
+
+            typeof(Definition).GetField("m_assetId", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).SetValue(item, guidstring);
+
+            AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = item, Guid = guidstring, Labels = new string[0] } };
+            RuntimeAssetStorage.Add(assets, default);
+        }
     }
 }

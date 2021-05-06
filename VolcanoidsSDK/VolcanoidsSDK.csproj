@@ -9,10 +9,10 @@
     <Copyright>Copyright © 2021</Copyright>
     <PackageProjectUrl>https://sdk.melodicalbuild.me</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.5</Version>
-    <PackageReleaseNotes>Fixed the Functions Build so it works.
-Allowed the Usage of Functional Commands
-SDK is now Enabled!</PackageReleaseNotes>
+    <Version>1.1.0</Version>
+    <PackageReleaseNotes>Updated to .NET Standard 2.0
+Added GUID versions of all the Functions!
+Added a GUID Version of the SDK Constructor.</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>ModdingCOG.png</PackageIcon>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>

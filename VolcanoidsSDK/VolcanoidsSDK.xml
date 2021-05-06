@@ -157,11 +157,36 @@
              <param name="ItemToReplace">        The item to replace. </param>
             -------------------------------------------------------------------------------------------------
         </member>
+        <member name="M:VolcanoidsSDK.lib.Deposit.CreateDeposit(System.Boolean,System.Int32,System.String,System.Single,System.Single,GUID)">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Creates a deposit. </summary>
+            
+             <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
+            
+             <param name="Underground">          If Deposit is Underground. </param>
+             <param name="PercentageToReplace">  The percentage to replace. </param>
+             <param name="outputname">           The outputname. </param>
+             <param name="minyield">             The minyield. </param>
+             <param name="maxyield">             The maxyield. </param>
+             <param name="ItemToReplace">        The item to replace. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
         <member name="M:VolcanoidsSDK.lib.Deposit.GetItem(System.String)">
             -------------------------------------------------------------------------------------------------
              <summary>   Gets an item. </summary>
             
              <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
+            
+             <param name="itemname"> The itemname. </param>
+            
+             <returns>   The item. </returns>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:VolcanoidsSDK.lib.Deposit.GetItem(GUID)">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Gets an item. </summary>
+            
+             <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
             
              <param name="itemname"> The itemname. </param>
             
@@ -193,6 +218,21 @@
              <summary>   Creates an item. </summary>
             
              <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
+            
+             <param name="codename">             The codename. </param>
+             <param name="maxstack">             The maxstack. </param>
+             <param name="name">                 The name. </param>
+             <param name="desc">                 The description. </param>
+             <param name="guidstring">           The guidstring. </param>
+             <param name="recipecategoryname">   The recipecategoryname. </param>
+             <param name="icon">                 The icon. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:VolcanoidsSDK.lib.Item.CreateItem(System.String,System.Int32,LocalizedString,LocalizedString,GUID,System.String,UnityEngine.Sprite)">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Creates an item. </summary>
+            
+             <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
             
              <param name="codename">             The codename. </param>
              <param name="maxstack">             The maxstack. </param>
@@ -239,11 +279,50 @@
              <param name="categories">       The categories. </param>
             -------------------------------------------------------------------------------------------------
         </member>
+        <member name="M:VolcanoidsSDK.lib.Module.CreateProductionModule(System.String,System.String,System.Int32,System.String,LocalizedString,LocalizedString,GUID,System.String,System.String,UnityEngine.Sprite,RecipeCategory[])">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Creates production module. </summary>
+            
+             <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
+            
+             <param name="codename">         The codename. </param>
+             <param name="variantname">      The variantname. </param>
+             <param name="maxstack">         The maxstack. </param>
+             <param name="baseitem">         The baseitem. </param>
+             <param name="name">             The name. </param>
+             <param name="desc">             The description. </param>
+             <param name="guidstring">       The guidstring. </param>
+             <param name="categoryname">     The categoryname. </param>
+             <param name="factorytypename">  The factorytypename. </param>
+             <param name="icon">             The icon. </param>
+             <param name="categories">       The categories. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
         <member name="M:VolcanoidsSDK.lib.Module.CreateProductionModule(System.String,System.String,System.Int32,System.String,LocalizedString,LocalizedString,System.String,System.String,System.String,UnityEngine.Sprite,RecipeCategory[],System.Boolean)">
             -------------------------------------------------------------------------------------------------
              <summary>   Creates production module. </summary>
             
              <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
+            
+             <param name="codename">         The codename. </param>
+             <param name="variantname">      The variantname. </param>
+             <param name="maxstack">         The maxstack. </param>
+             <param name="basename">         The basename. </param>
+             <param name="name">             The name. </param>
+             <param name="desc">             The description. </param>
+             <param name="guidstring">       The guidstring. </param>
+             <param name="categoryname">     The categoryname. </param>
+             <param name="factorytypename">  The factorytypename. </param>
+             <param name="icon">             The icon. </param>
+             <param name="categories">       The categories. </param>
+             <param name="looping">          True to looping. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:VolcanoidsSDK.lib.Module.CreateProductionModule(System.String,System.String,System.Int32,System.String,LocalizedString,LocalizedString,GUID,System.String,System.String,UnityEngine.Sprite,RecipeCategory[],System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Creates production module. </summary>
+            
+             <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
             
              <param name="codename">         The codename. </param>
              <param name="variantname">      The variantname. </param>
@@ -271,6 +350,21 @@
              <summary>   Creates a recipe. </summary>
             
              <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
+            
+             <param name="recipeName">       Name of the recipe. </param>
+             <param name="inputs">           The inputs. </param>
+             <param name="outputs">          The outputs. </param>
+             <param name="baseRecipe">       The base recipe. </param>
+             <param name="itemId">           Identifier for the item. </param>
+             <param name="requiredItems">    The required items. </param>
+             <param name="recipeCategory">   Category the recipe belongs to. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:VolcanoidsSDK.lib.RecipeCreator.CreateRecipe(System.String,VolcanoidsSDK.lib.classes.Input[],VolcanoidsSDK.lib.classes.Output[],System.String,GUID,System.String[],System.String)">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Creates a recipe. </summary>
+            
+             <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
             
              <param name="recipeName">       Name of the recipe. </param>
              <param name="inputs">           The inputs. </param>
@@ -432,6 +526,23 @@
              <param name="categories">   The categories. </param>
             -------------------------------------------------------------------------------------------------
         </member>
+        <member name="M:VolcanoidsSDK.lib.Station.CreateStation(FactoryType,System.String,System.Int32,LocalizedString,LocalizedString,GUID,UnityEngine.Sprite,System.String,RecipeCategory[])">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Creates a station. </summary>
+            
+             <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
+            
+             <param name="factoryType">  Type of the factory. </param>
+             <param name="codename">     The codename. </param>
+             <param name="maxStack">     Max Stack Size of this Item. </param>
+             <param name="name">         The name. </param>
+             <param name="desc">         The description. </param>
+             <param name="guidString">   The unique identifier string. </param>
+             <param name="icon">         The icon. </param>
+             <param name="variantname">  The variantname. </param>
+             <param name="categories">   The categories. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
         <member name="T:VolcanoidsSDK.SDK">
             -------------------------------------------------------------------------------------------------
              <summary> The Volcanoids Modding SDK </summary>
@@ -453,6 +564,16 @@
              <summary>   Inits the SDK </summary>
             
              <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
+            
+             <param name="name">             The Name of your Mod Name </param>
+             <param name="appIdentifier">    Your Unique appIdentifier, This is very Important. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:VolcanoidsSDK.SDK.#ctor(System.String,System.String)">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Inits the SDK </summary>
+            
+             <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
             
              <param name="name">             The Name of your Mod Name </param>
              <param name="appIdentifier">    Your Unique appIdentifier, This is very Important. </param>
@@ -497,6 +618,29 @@
                                              first Module in that category, False at all other times. </param>
             -------------------------------------------------------------------------------------------------
         </member>
+        <member name="M:VolcanoidsSDK.Functions.CreateModule(System.String,System.String,System.Int32,System.String,LocalizedString,LocalizedString,GUID,System.String,System.String,System.String,System.String[],System.Boolean)">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Creates a Module. </summary>
+            
+             <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
+            
+             <param name="codename">         The Name of the Module with NO SPACES. </param>
+             <param name="variantname">      The Name of the Variant, Such as Tier1 or Tier2. </param>
+             <param name="maxstack">         The Maximum you can have of this item in a stack. </param>
+             <param name="baseitem">         The Item to Base this object off, Pick a Module with the same
+                                             Variant. </param>
+             <param name="name">             The Spaced Name of your Module. </param>
+             <param name="desc">             The Description of your Module. </param>
+             <param name="guidstring">       The GUID in GUID Form for your module. </param>
+             <param name="categoryname">     The Category in which your Module is in. </param>
+             <param name="factorytypename">  The Factory Type that is Module is a Part of. </param>
+             <param name="iconPath">         Full pathname of the icon file. </param>
+             <param name="categoryList">     Array of Strings for Categories for the Module Item to be
+                                             placed in. </param>
+             <param name="looping">          If you are creating a new FactoryType, This is true for the
+                                             first Module in that category, False at all other times. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
         <member name="M:VolcanoidsSDK.Functions.CreateItem(System.String,System.Int32,LocalizedString,LocalizedString,System.String,System.String,System.String)">
             -------------------------------------------------------------------------------------------------
              <summary>   Creates an item. </summary>
@@ -512,11 +656,40 @@
              <param name="iconPath">             Full pathname of the icon file. </param>
             -------------------------------------------------------------------------------------------------
         </member>
+        <member name="M:VolcanoidsSDK.Functions.CreateItem(System.String,System.Int32,LocalizedString,LocalizedString,GUID,System.String,System.String)">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Creates an item. </summary>
+            
+             <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
+            
+             <param name="codename">             The Name of the Module with NO SPACES. </param>
+             <param name="maxstack">             The Maximum you can have of this item in a stack. </param>
+             <param name="name">                 The Spaced Name of your Module. </param>
+             <param name="desc">                 The Description of your Module. </param>
+             <param name="guidstring">           The GUID in GUID Form for your module. </param>
+             <param name="recipecategoryname">   The Base Item for your Item. </param>
+             <param name="iconPath">             Full pathname of the icon file. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
         <member name="M:VolcanoidsSDK.Functions.CreateDeposit(System.Boolean,System.Int32,System.String,System.Single,System.Single,System.String)">
             -------------------------------------------------------------------------------------------------
              <summary>   Creates a deposit. </summary>
             
              <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
+            
+             <param name="Underground">          If this is an Underground Deposit. </param>
+             <param name="PercentageToReplace">  The percentage to replace. </param>
+             <param name="outputname">           The Item to Output when Mined. </param>
+             <param name="minyield">             The Minimum Amount the Deposit can give. </param>
+             <param name="maxyield">             The Maximum Amount the Deposit can give. </param>
+             <param name="ItemToReplace">        The Deposit Item to Replace. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:VolcanoidsSDK.Functions.CreateDeposit(System.Boolean,System.Int32,System.String,System.Single,System.Single,GUID)">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Creates a deposit. </summary>
+            
+             <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
             
              <param name="Underground">          If this is an Underground Deposit. </param>
              <param name="PercentageToReplace">  The percentage to replace. </param>
@@ -543,11 +716,46 @@
              <param name="recipeCategory">   Category the recipe belongs to. </param>
             -------------------------------------------------------------------------------------------------
         </member>
+        <member name="M:VolcanoidsSDK.Functions.CreateRecipe(System.String,VolcanoidsSDK.lib.classes.Input[],VolcanoidsSDK.lib.classes.Output[],System.String,GUID,System.String[],System.String)">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Creates a recipe. </summary>
+            
+             <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
+            
+             <param name="recipeName">       Name of the recipe. </param>
+             <param name="inputs">           The inputs of the Recipe. Uses
+                                             VolcanoidsFramework.lib.classes.Input. </param>
+             <param name="outputs">          The outputs of your Recipe. Uses
+                                             VolcanoidsFramework.lib.classes.Output. </param>
+             <param name="baseRecipe">       The base recipe. </param>
+             <param name="itemId">           GUID for the item. </param>
+             <param name="requiredItems">    The required items (Schematics) to create this Recipe. </param>
+             <param name="recipeCategory">   Category the recipe belongs to. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
         <member name="M:VolcanoidsSDK.Functions.CreateStation(System.String,System.String,System.Int32,LocalizedString,LocalizedString,System.String,System.String,System.String,System.String[])">
             -------------------------------------------------------------------------------------------------
              <summary>   Creates a station. </summary>
             
              <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
+            
+             <param name="factoryTypeName">  Name of the factory type for this Station to use. </param>
+             <param name="codename">         The Name of the Module with NO SPACES. </param>
+             <param name="maxStack">         The Maximum you can have of this item in a stack. </param>
+             <param name="name">             The Spaced Name of your Module. </param>
+             <param name="desc">             The Description of your Module. </param>
+             <param name="guidString">       The GUID for this Item. </param>
+             <param name="iconPath">         Full pathname of the icon file. </param>
+             <param name="variantname">      The Name of the Variant, Such as Tier1 or Tier2. </param>
+             <param name="categoryList">     Array of Strings for Categories for the Station Item to be
+                                             placed in. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:VolcanoidsSDK.Functions.CreateStation(System.String,System.String,System.Int32,LocalizedString,LocalizedString,GUID,System.String,System.String,System.String[])">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Creates a station. </summary>
+            
+             <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
             
              <param name="factoryTypeName">  Name of the factory type for this Station to use. </param>
              <param name="codename">         The Name of the Module with NO SPACES. </param>

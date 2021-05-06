@@ -1,7 +1,14 @@
 ﻿# Volcanoids Modding SDK
 
-## Live Nuget Version - 1.0.5
-## Developer Version - 1.0.6
+## Live Nuget Version - 1.1.0
+## Developer Version - 1.1.1
+
+# Changes | v1.1.0
+
+Added GUID Versions of All the Functions in VolcanoidsSDK.Functions<br/>
+Added a GUID Version of VolcanoidsSDK.SDK constructor<br/>
+Updated Package Information<br/>
+I guess started working on SDK Docs for Non Functions methods<br/>
 
 # Changes | v1.0.5
 
