@@ -1,7 +1,11 @@
 ﻿# Volcanoids Modding SDK
 
-## Live Nuget Version - 1.0.4
-## Developer Version - 1.0.5
+## Live Nuget Version - 1.0.5
+## Developer Version - 1.0.6
+
+# Changes | v1.0.5
+
+Fixed how stupid I am and reverted the SDK to .NET Standard 2.0
 
 # Changes | v1.0.4
 

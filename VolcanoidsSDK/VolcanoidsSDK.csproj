@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>MelodicAlbuild, LordGregory</Authors>
     <Company>Volcanoids Modding</Company>
     <Product>Volcanoids Modding SDK</Product>
@@ -9,13 +9,17 @@
     <Copyright>Copyright © 2021</Copyright>
     <PackageProjectUrl>https://sdk.melodicalbuild.me</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <PackageReleaseNotes>Fixed the Functions Build so it works.
 Allowed the Usage of Functional Commands
 SDK is now Enabled!</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>ModdingCOG.png</PackageIcon>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/VolcanoidsModding/VolcanoidsSDK</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>Volcanoids,Modding</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
