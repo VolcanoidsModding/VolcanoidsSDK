@@ -471,6 +471,10 @@ namespace VolcanoidsSDK
                 {
                     Category.CreateRecipeCategory(categoryName, categoryId);
                 }
+                else if (categoryType == CategoryTypes.Item)
+                {
+                    Category.CreateItemCategory(categoryName, categoryId);
+                }
                 else
                 {
                     throw new ArgumentException("Create Category Requires a Valid CategoryTypes Enum from VolcanoidsSDK.lib.classes.Enums");
