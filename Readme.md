@@ -1,7 +1,7 @@
 ﻿# Volcanoids Modding SDK
 
 ## Live Nuget Version - 1.1.0
-## Developer Version - 1.1.1
+## Developer Version - 1.2.0
 
 # Changes | v1.1.0
 
