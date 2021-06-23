@@ -21,7 +21,7 @@ namespace VolcanoidsSDK
         public static GUID ModID;
 
         /// <summary>   (Immutable) SDK Global Version </summary>
-        private const string version = "1.0.6";
+        private const string version = "1.2.0";
 
         ///-------------------------------------------------------------------------------------------------
         /// <summary>   Inits the SDK </summary>

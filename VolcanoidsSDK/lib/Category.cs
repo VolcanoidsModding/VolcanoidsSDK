@@ -110,5 +110,38 @@ namespace VolcanoidsSDK.lib
             AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = Forge, Guid = guid, Labels = new string[0] } };
             RuntimeAssetStorage.Add(assets, default);
         }
+
+        ///-------------------------------------------------------------------------------------------------
+        /// <summary>   Creates an Item Category. </summary>
+        ///
+        /// <remarks>   MelodicAlbuild, 6/23/2021. </remarks>
+        ///
+        /// <param name="name">             Category Name </param>
+        /// <param name="categoryId">       The String ID of your Category. </param>
+        ///-------------------------------------------------------------------------------------------------
+        private void CreateItemCategory(string name, string categoryId)
+        {
+            var Forge = ScriptableObject.CreateInstance<ItemCategory>();
+            Forge.name = name;
+            var guid = GUID.Parse(categoryId);
+            AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = Forge, Guid = guid, Labels = new string[0] } };
+            RuntimeAssetStorage.Add(assets);
+        }
+
+        ///-------------------------------------------------------------------------------------------------
+        /// <summary>   Creates an Item Category. </summary>
+        ///
+        /// <remarks>   MelodicAlbuild, 6/23/2021. </remarks>
+        ///
+        /// <param name="name">             Category Name </param>
+        /// <param name="categoryId">       The GUID ID of your Category. </param>
+        ///-------------------------------------------------------------------------------------------------
+        private void CreateItemCategory(string name, GUID categoryId)
+        {
+            var Forge = ScriptableObject.CreateInstance<ItemCategory>();
+            Forge.name = name;
+            AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = Forge, Guid = categoryId, Labels = new string[0] } };
+            RuntimeAssetStorage.Add(assets);
+        }
     }
 }

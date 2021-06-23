@@ -9,10 +9,13 @@
     <Copyright>Copyright © 2021</Copyright>
     <PackageProjectUrl>https://sdk.melodicalbuild.me</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.0</Version>
-    <PackageReleaseNotes>Updated to .NET Standard 2.0
-Added GUID versions of all the Functions!
-Added a GUID Version of the SDK Constructor.</PackageReleaseNotes>
+    <Version>1.2.0</Version>
+    <PackageReleaseNotes>Updated to Volcanoids 1.25.*
+Migrated Dependencies to 1.25
+Added Item Category Creation
+Embedded Property Files into the XML Systems
+Updated the Localization Changes to reflect LocalizedString Movements
+Reset the SDK Functions Version Control System</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>ModdingCOG.png</PackageIcon>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>

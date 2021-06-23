@@ -18,21 +18,6 @@ namespace VolcanoidsSDK.lib
         private static readonly GUID productionStationGUID = GUID.Parse("7c32d187420152f4da3a79d465cbe87a");
 
         ///-------------------------------------------------------------------------------------------------
-        /// <summary>   Initializes the passed Object. </summary>
-        ///
-        /// <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
-        ///
-        /// <typeparam name="T">    Generic type parameter. </typeparam>
-        /// <param name="str">  [in,out] The string. </param>
-        ///-------------------------------------------------------------------------------------------------
-
-        private static void Initialize<T>(ref T str)
-            where T : struct, ISerializationCallbackReceiver
-        {
-            str.OnAfterDeserialize();
-        }
-
-        ///-------------------------------------------------------------------------------------------------
         /// <summary>   Creates a station. </summary>
         ///
         /// <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
@@ -48,7 +33,7 @@ namespace VolcanoidsSDK.lib
         /// <param name="categories">   The categories. </param>
         ///-------------------------------------------------------------------------------------------------
 
-        public static void CreateStation(FactoryType factoryType, string codename, int maxStack, LocalizedString name, LocalizedString desc, string guidString, Sprite icon, string variantname, RecipeCategory[] categories)
+        private void CreateStation(FactoryType factoryType, string codename, int maxStack, LocalizedString name, LocalizedString desc, string guidString, Sprite icon, string variantname, RecipeCategory[] categories)
         {
             var category = GameResources.Instance.Items.FirstOrDefault(s => s.AssetId == productionStationGUID)?.Category;
             var item = ScriptableObject.CreateInstance<ItemDefinition>();
@@ -62,20 +47,18 @@ namespace VolcanoidsSDK.lib
             var prefabParent = new GameObject();
             var olditem = GameResources.Instance.Items.FirstOrDefault(s => s.AssetId == productionStationGUID);
             prefabParent.SetActive(false);
-            var newmodule = UnityEngine.Object.Instantiate(olditem.Prefabs[0], prefabParent.transform);
+            var newmodule = Object.Instantiate(olditem.Prefabs[0], prefabParent.transform);
             var module = newmodule.GetComponentInChildren<FactoryStation>();
             var producer = newmodule.GetComponentInChildren<Producer>();
-            newmodule.SetName("AlloyForgeStation");
+            newmodule.SetName(codename);
             var gridmodule = newmodule.GetComponent<GridModule>();
             gridmodule.VariantName = variantname;
             gridmodule.Item = item;
 
-            var productionGroup = Typings.GetOrCreateTyping(factoryType);
+            var productionGroup = MelodicReferences.GetOrCreateTyping(factoryType);
 
             LocalizedString nameStr = name;
             LocalizedString descStr = desc;
-            Initialize(ref nameStr);
-            Initialize(ref descStr);
 
             item.SetPrivateField("m_name", nameStr);
             item.SetPrivateField("m_description", descStr);
@@ -89,7 +72,7 @@ namespace VolcanoidsSDK.lib
             item.Prefabs = new GameObject[] { newmodule };
 
             AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = item, Guid = guid, Labels = new string[0] } };
-            RuntimeAssetStorage.Add(assets, default);
+            RuntimeAssetStorage.Add(assets);
         }
 
         ///-------------------------------------------------------------------------------------------------
@@ -108,7 +91,7 @@ namespace VolcanoidsSDK.lib
         /// <param name="categories">   The categories. </param>
         ///-------------------------------------------------------------------------------------------------
 
-        public static void CreateStation(FactoryType factoryType, string codename, int maxStack, LocalizedString name, LocalizedString desc, GUID guidString, Sprite icon, string variantname, RecipeCategory[] categories)
+        private void CreateStation(FactoryType factoryType, string codename, int maxStack, LocalizedString name, LocalizedString desc, GUID guidString, Sprite icon, string variantname, RecipeCategory[] categories)
         {
             var category = GameResources.Instance.Items.FirstOrDefault(s => s.AssetId == productionStationGUID)?.Category;
             var item = ScriptableObject.CreateInstance<ItemDefinition>();
@@ -122,20 +105,18 @@ namespace VolcanoidsSDK.lib
             var prefabParent = new GameObject();
             var olditem = GameResources.Instance.Items.FirstOrDefault(s => s.AssetId == productionStationGUID);
             prefabParent.SetActive(false);
-            var newmodule = UnityEngine.Object.Instantiate(olditem.Prefabs[0], prefabParent.transform);
+            var newmodule = Object.Instantiate(olditem.Prefabs[0], prefabParent.transform);
             var module = newmodule.GetComponentInChildren<FactoryStation>();
             var producer = newmodule.GetComponentInChildren<Producer>();
-            newmodule.SetName("AlloyForgeStation");
+            newmodule.SetName(codename);
             var gridmodule = newmodule.GetComponent<GridModule>();
             gridmodule.VariantName = variantname;
             gridmodule.Item = item;
 
-            var productionGroup = Typings.GetOrCreateTyping(factoryType);
+            var productionGroup = MelodicReferences.GetOrCreateTyping(factoryType);
 
             LocalizedString nameStr = name;
             LocalizedString descStr = desc;
-            Initialize(ref nameStr);
-            Initialize(ref descStr);
 
             item.SetPrivateField("m_name", nameStr);
             item.SetPrivateField("m_description", descStr);
@@ -147,8 +128,8 @@ namespace VolcanoidsSDK.lib
 
             item.Prefabs = new GameObject[] { newmodule };
 
-            AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = item, Guid = guidString, Labels = new string[0] } };
-            RuntimeAssetStorage.Add(assets, default);
+            AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = item, Guid = guid, Labels = new string[0] } };
+            RuntimeAssetStorage.Add(assets);
         }
     }
 }
