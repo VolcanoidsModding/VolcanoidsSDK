@@ -19,7 +19,9 @@
             ///<summary>Module Category Type</summary>
             Module,
             ///<summary>Factory Category Type</summary>
-            Factory
+            Factory,
+            ///<summary>Item Category Type</summary>
+            Item
         }
     }
 }
