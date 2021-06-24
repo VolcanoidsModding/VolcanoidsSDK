@@ -23,7 +23,7 @@ namespace VolcanoidsSDK.lib
             ok.name = name;
             var guid = GUID.Parse(categoryId);
             AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = ok, Guid = guid, Labels = new string[0] } };
-            RuntimeAssetStorage.Add(assets, default);
+            RuntimeAssetStorage.Add(assets);
         }
 
         ///-------------------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@ namespace VolcanoidsSDK.lib
             ok.name = name;
             var guid = categoryId;
             AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = ok, Guid = guid, Labels = new string[0] } };
-            RuntimeAssetStorage.Add(assets, default);
+            RuntimeAssetStorage.Add(assets);
         }
 
         ///-------------------------------------------------------------------------------------------------
@@ -57,7 +57,7 @@ namespace VolcanoidsSDK.lib
             ok.name = name;
             var guid = GUID.Parse(categoryId);
             AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = ok, Guid = guid, Labels = new string[4] } };
-            RuntimeAssetStorage.Add(assets, default);
+            RuntimeAssetStorage.Add(assets);
         }
 
         ///-------------------------------------------------------------------------------------------------
@@ -74,7 +74,7 @@ namespace VolcanoidsSDK.lib
             ok.name = name;
             var guid = categoryId;
             AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = ok, Guid = guid, Labels = new string[4] } };
-            RuntimeAssetStorage.Add(assets, default);
+            RuntimeAssetStorage.Add(assets);
         }
 
         ///-------------------------------------------------------------------------------------------------
@@ -91,7 +91,7 @@ namespace VolcanoidsSDK.lib
             Forge.name = name;
             var guid = GUID.Parse(categoryId);
             AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = Forge, Guid = guid, Labels = new string[0] } };
-            RuntimeAssetStorage.Add(assets, default);
+            RuntimeAssetStorage.Add(assets);
         }
 
         ///-------------------------------------------------------------------------------------------------
@@ -108,7 +108,7 @@ namespace VolcanoidsSDK.lib
             Forge.name = name;
             var guid = categoryId;
             AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = Forge, Guid = guid, Labels = new string[0] } };
-            RuntimeAssetStorage.Add(assets, default);
+            RuntimeAssetStorage.Add(assets);
         }
 
         ///-------------------------------------------------------------------------------------------------
@@ -119,7 +119,7 @@ namespace VolcanoidsSDK.lib
         /// <param name="name">             Category Name </param>
         /// <param name="categoryId">       The String ID of your Category. </param>
         ///-------------------------------------------------------------------------------------------------
-        private void CreateItemCategory(string name, string categoryId)
+        public static void CreateItemCategory(string name, string categoryId)
         {
             var Forge = ScriptableObject.CreateInstance<ItemCategory>();
             Forge.name = name;
@@ -136,7 +136,7 @@ namespace VolcanoidsSDK.lib
         /// <param name="name">             Category Name </param>
         /// <param name="categoryId">       The GUID ID of your Category. </param>
         ///-------------------------------------------------------------------------------------------------
-        private void CreateItemCategory(string name, GUID categoryId)
+        public static void CreateItemCategory(string name, GUID categoryId)
         {
             var Forge = ScriptableObject.CreateInstance<ItemCategory>();
             Forge.name = name;

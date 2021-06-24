@@ -34,7 +34,7 @@ namespace VolcanoidsSDK.lib
         /// <param name="categories">       The categories. </param>
         ///-------------------------------------------------------------------------------------------------
 
-        public void CreateProductionModule(string codename, string variantname, int maxstack, string baseitem, LocalizedString name, LocalizedString desc, string guidstring, string categoryname, string factorytypename, Sprite icon, RecipeCategory[] categories)
+        public static void CreateProductionModule(string codename, string variantname, int maxstack, string baseitem, LocalizedString name, LocalizedString desc, string guidstring, string categoryname, string factorytypename, Sprite icon, RecipeCategory[] categories)
         {
             var category = GameResources.Instance.Items.FirstOrDefault(s => s.name == categoryname).Category;
             var item = ScriptableObject.CreateInstance<ItemDefinition>();
@@ -57,7 +57,7 @@ namespace VolcanoidsSDK.lib
             var modulecategory = RuntimeAssetCacheLookup.Get<ModuleCategory>().First(s => s.name == factorytypename);
             modulecategory.Modules = modulecategory.Modules.Concat(new ItemDefinition[] { item }).ToArray();
 
-            var productionGroup = MelodicReferences.GetOrCreateTyping(factorytype);
+            var productionGroup = Typings.GetOrCreateTyping(factorytype);
 
             LocalizedString nameStr = name;
             LocalizedString descStr = desc;
@@ -95,7 +95,7 @@ namespace VolcanoidsSDK.lib
         /// <param name="categories">       The categories. </param>
         ///-------------------------------------------------------------------------------------------------
 
-        public void CreateProductionModule(string codename, string variantname, int maxstack, string baseitem, LocalizedString name, LocalizedString desc, GUID guidstring, string categoryname, string factorytypename, Sprite icon, RecipeCategory[] categories)
+        public static void CreateProductionModule(string codename, string variantname, int maxstack, string baseitem, LocalizedString name, LocalizedString desc, GUID guidstring, string categoryname, string factorytypename, Sprite icon, RecipeCategory[] categories)
         {
             var category = GameResources.Instance.Items.FirstOrDefault(s => s.name == categoryname).Category;
             var item = ScriptableObject.CreateInstance<ItemDefinition>();
@@ -118,7 +118,7 @@ namespace VolcanoidsSDK.lib
             var modulecategory = RuntimeAssetCacheLookup.Get<ModuleCategory>().First(s => s.name == factorytypename);
             modulecategory.Modules = modulecategory.Modules.Concat(new ItemDefinition[] { item }).ToArray();
 
-            var productionGroup = MelodicReferences.GetOrCreateTyping(factorytype);
+            var productionGroup = Typings.GetOrCreateTyping(factorytype);
 
             LocalizedString nameStr = name;
             LocalizedString descStr = desc;
@@ -132,7 +132,7 @@ namespace VolcanoidsSDK.lib
 
             typeof(Definition).GetField("m_assetId", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).SetValue(item, guidstring);
 
-            AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = item, Guid = guid, Labels = new string[0] } };
+            AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = item, Guid = guidstring, Labels = new string[0] } };
             RuntimeAssetStorage.Add(assets);
         }
 
@@ -155,7 +155,7 @@ namespace VolcanoidsSDK.lib
         /// <param name="looping">          True to looping. </param>
         ///-------------------------------------------------------------------------------------------------
 
-        public void CreateProductionModule(string codename, string variantname, int maxstack, string basename, LocalizedString name, LocalizedString desc, string guidstring, string categoryname, string factorytypename, Sprite icon, RecipeCategory[] categories, bool looping)
+        public static void CreateProductionModule(string codename, string variantname, int maxstack, string basename, LocalizedString name, LocalizedString desc, string guidstring, string categoryname, string factorytypename, Sprite icon, RecipeCategory[] categories, bool looping)
         {
             var category = GameResources.Instance.Items.FirstOrDefault(s => s.name == categoryname).Category;
             var item = ScriptableObject.CreateInstance<ItemDefinition>();
@@ -214,7 +214,7 @@ namespace VolcanoidsSDK.lib
         /// <param name="looping">          True to looping. </param>
         ///-------------------------------------------------------------------------------------------------
 
-        public void CreateProductionModule(string codename, string variantname, int maxstack, string basename, LocalizedString name, LocalizedString desc, GUID guidstring, string categoryname, string factorytypename, Sprite icon, RecipeCategory[] categories, bool looping)
+        public static void CreateProductionModule(string codename, string variantname, int maxstack, string basename, LocalizedString name, LocalizedString desc, GUID guidstring, string categoryname, string factorytypename, Sprite icon, RecipeCategory[] categories, bool looping)
         {
             var category = GameResources.Instance.Items.FirstOrDefault(s => s.name == categoryname).Category;
             var item = ScriptableObject.CreateInstance<ItemDefinition>();
@@ -248,7 +248,7 @@ namespace VolcanoidsSDK.lib
 
             typeof(Definition).GetField("m_assetId", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).SetValue(item, guidstring);
 
-            AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = item, Guid = guid, Labels = new string[0] } };
+            AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = item, Guid = guidstring, Labels = new string[0] } };
             RuntimeAssetStorage.Add(assets);
         }
     }

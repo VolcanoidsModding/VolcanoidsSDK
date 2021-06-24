@@ -43,11 +43,21 @@ Reset the SDK Functions Version Control System</PackageReleaseNotes>
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="lib\assets\ModdingCOG.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
       <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Rock.Base">
       <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Rock.Base.dll</HintPath>
@@ -61,26 +71,29 @@ Reset the SDK Functions Version Control System</PackageReleaseNotes>
     <Reference Include="Rock.Unity.VideoCapture">
       <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Rock.Unity.VideoCapture.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil">
+      <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.Burst.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Mdb">
+      <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.Burst.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Pdb">
+      <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.Burst.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Cecil.Rocks">
+      <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Unsafe">
+      <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.Burst.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.Postprocessing.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder">
-      <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.ProBuilder.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.Csg">
-      <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.ProBuilder.Csg.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.KdTree">
-      <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.ProBuilder.KdTree.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.Poly2Tri">
-      <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.ProBuilder.Poly2Tri.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.Stl">
-      <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.ProBuilder.Stl.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\Unity.TextMeshPro.dll</HintPath>
@@ -286,13 +299,6 @@ Reset the SDK Functions Version Control System</PackageReleaseNotes>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>D:\Steam Things\steamapps\common\Volcanoids\Volcanoids_Data\Managed\UnityEngine.XRModule.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="lib\assets\ModdingCOG.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
   </ItemGroup>
 
 </Project>

@@ -71,6 +71,26 @@
              <param name="categoryId">       The GUID ID of your Category. </param>
             -------------------------------------------------------------------------------------------------
         </member>
+        <member name="M:VolcanoidsSDK.lib.Category.CreateItemCategory(System.String,System.String)">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Creates an Item Category. </summary>
+            
+             <remarks>   MelodicAlbuild, 6/23/2021. </remarks>
+            
+             <param name="name">             Category Name </param>
+             <param name="categoryId">       The String ID of your Category. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:VolcanoidsSDK.lib.Category.CreateItemCategory(System.String,GUID)">
+            -------------------------------------------------------------------------------------------------
+             <summary>   Creates an Item Category. </summary>
+            
+             <remarks>   MelodicAlbuild, 6/23/2021. </remarks>
+            
+             <param name="name">             Category Name </param>
+             <param name="categoryId">       The GUID ID of your Category. </param>
+            -------------------------------------------------------------------------------------------------
+        </member>
         <member name="T:VolcanoidsSDK.lib.classes.Enums">
             -------------------------------------------------------------------------------------------------
              <summary>   Enum Listing Classes. </summary>
@@ -93,6 +113,9 @@
         </member>
         <member name="F:VolcanoidsSDK.lib.classes.Enums.CategoryTypes.Factory">
             <summary>Factory Category Type</summary>
+        </member>
+        <member name="F:VolcanoidsSDK.lib.classes.Enums.CategoryTypes.Item">
+            <summary>Item Category Type</summary>
         </member>
         <member name="T:VolcanoidsSDK.lib.classes.Input">
             -------------------------------------------------------------------------------------------------
@@ -203,21 +226,11 @@
              <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
             -------------------------------------------------------------------------------------------------
         </member>
-        <member name="M:VolcanoidsSDK.lib.Item.Initialize``1(``0@)">
-            -------------------------------------------------------------------------------------------------
-             <summary>   Initializes this object. </summary>
-            
-             <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
-            
-             <typeparam name="T">    Generic type parameter. </typeparam>
-             <param name="str">  [in,out] The string. </param>
-            -------------------------------------------------------------------------------------------------
-        </member>
         <member name="M:VolcanoidsSDK.lib.Item.CreateItem(System.String,System.Int32,LocalizedString,LocalizedString,System.String,System.String,UnityEngine.Sprite)">
             -------------------------------------------------------------------------------------------------
              <summary>   Creates an item. </summary>
             
-             <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
+             <remarks>   MelodicAlbuild, 6/23/2021. </remarks>
             
              <param name="codename">             The codename. </param>
              <param name="maxstack">             The maxstack. </param>
@@ -232,7 +245,7 @@
             -------------------------------------------------------------------------------------------------
              <summary>   Creates an item. </summary>
             
-             <remarks>   MelodicAlbuild, 5/5/2021. </remarks>
+             <remarks>   MelodicAlbuild, 6/23/2021. </remarks>
             
              <param name="codename">             The codename. </param>
              <param name="maxstack">             The maxstack. </param>
@@ -248,16 +261,6 @@
              <summary>   The Module Creation Class. </summary>
             
              <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
-            -------------------------------------------------------------------------------------------------
-        </member>
-        <member name="M:VolcanoidsSDK.lib.Module.Initialize``1(``0@)">
-            -------------------------------------------------------------------------------------------------
-             <summary>   Initializes this object. </summary>
-            
-             <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
-            
-             <typeparam name="T">    Generic type parameter. </typeparam>
-             <param name="str">  [in,out] The string. </param>
             -------------------------------------------------------------------------------------------------
         </member>
         <member name="M:VolcanoidsSDK.lib.Module.CreateProductionModule(System.String,System.String,System.Int32,System.String,LocalizedString,LocalizedString,System.String,System.String,System.String,UnityEngine.Sprite,RecipeCategory[])">
@@ -498,16 +501,6 @@
         </member>
         <member name="F:VolcanoidsSDK.lib.Station.productionStationGUID">
             <summary>   (Immutable) unique identifier for the production station. </summary>
-        </member>
-        <member name="M:VolcanoidsSDK.lib.Station.Initialize``1(``0@)">
-            -------------------------------------------------------------------------------------------------
-             <summary>   Initializes the passed Object. </summary>
-            
-             <remarks>   MelodicAlbuild, 3/30/2021. </remarks>
-            
-             <typeparam name="T">    Generic type parameter. </typeparam>
-             <param name="str">  [in,out] The string. </param>
-            -------------------------------------------------------------------------------------------------
         </member>
         <member name="M:VolcanoidsSDK.lib.Station.CreateStation(FactoryType,System.String,System.Int32,LocalizedString,LocalizedString,System.String,UnityEngine.Sprite,System.String,RecipeCategory[])">
             -------------------------------------------------------------------------------------------------

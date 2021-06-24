@@ -30,19 +30,19 @@ namespace VolcanoidsSDK.lib
         public static void CreateRecipe(string recipeName, classes.Input[] inputs, classes.Output[] outputs, string baseRecipe, string itemId, string[] requiredItems, string recipeCategory)
         {
             var outputItem = GameResources.Instance.Items.FirstOrDefault(s => s.name == outputs[0].output_name);
-            var finalInput = new InventoryItemData[inputs.Length];
+            var finalInput = new InventoryItem[inputs.Length];
             var i = 0;
             foreach (classes.Input input in inputs)
             {
                 var itemVar = GameResources.Instance.Items.FirstOrDefault(s => s.name == input.input_name);
-                finalInput[i] = new InventoryItemData { Item = itemVar, Amount = input.input_amount };
+                finalInput[i] = new InventoryItem { Item = itemVar, Amount = input.input_amount };
                 i++;
             }
 
             var recipe = ScriptableObject.CreateInstance<Recipe>();
             recipe.name = recipeName;
             recipe.Inputs = finalInput;
-            recipe.Output = new InventoryItemData { Item = outputItem, Amount = outputs[0].output_amount };
+            recipe.Output = new InventoryItem { Item = outputItem, Amount = outputs[0].output_amount };
             if (requiredItems[0] != "")
             {
                 var requiredFinal = new ItemDefinition[inputs.Length];
@@ -57,7 +57,8 @@ namespace VolcanoidsSDK.lib
             }
             else
             {
-                var baseRecipeTag = GameResources.Instance.Recipes.FirstOrDefault(s => s.name == baseRecipe);
+                var baseRecipeGuid = GUID.Parse(baseRecipe);
+                var baseRecipeTag = GameResources.Instance.Recipes.FirstOrDefault(s => s.AssetId == baseRecipeGuid);
                 recipe.RequiredUpgrades = baseRecipeTag.RequiredUpgrades;
             }
             if (recipeCategory != "")
@@ -66,14 +67,15 @@ namespace VolcanoidsSDK.lib
             }
             else
             {
-                var baseRecipeTag = GameResources.Instance.Recipes.FirstOrDefault(s => s.name == baseRecipe);
+                var baseRecipeGuid = GUID.Parse(baseRecipe);
+                var baseRecipeTag = GameResources.Instance.Recipes.FirstOrDefault(s => s.AssetId == baseRecipeGuid);
                 recipe.Categories = baseRecipeTag.Categories.ToArray();
             }
 
             var guid = GUID.Parse(itemId);
 
             AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = recipe, Guid = guid, Labels = new string[0] } };
-            RuntimeAssetStorage.Add(assets, default);
+            RuntimeAssetStorage.Add(assets);
         }
 
         ///-------------------------------------------------------------------------------------------------
@@ -93,19 +95,19 @@ namespace VolcanoidsSDK.lib
         public static void CreateRecipe(string recipeName, classes.Input[] inputs, classes.Output[] outputs, string baseRecipe, GUID itemId, string[] requiredItems, string recipeCategory)
         {
             var outputItem = GameResources.Instance.Items.FirstOrDefault(s => s.name == outputs[0].output_name);
-            var finalInput = new InventoryItemData[inputs.Length];
+            var finalInput = new InventoryItem[inputs.Length];
             var i = 0;
             foreach (classes.Input input in inputs)
             {
                 var itemVar = GameResources.Instance.Items.FirstOrDefault(s => s.name == input.input_name);
-                finalInput[i] = new InventoryItemData { Item = itemVar, Amount = input.input_amount };
+                finalInput[i] = new InventoryItem { Item = itemVar, Amount = input.input_amount };
                 i++;
             }
 
             var recipe = ScriptableObject.CreateInstance<Recipe>();
             recipe.name = recipeName;
             recipe.Inputs = finalInput;
-            recipe.Output = new InventoryItemData { Item = outputItem, Amount = outputs[0].output_amount };
+            recipe.Output = new InventoryItem { Item = outputItem, Amount = outputs[0].output_amount };
             if (requiredItems[0] != "")
             {
                 var requiredFinal = new ItemDefinition[inputs.Length];
@@ -120,7 +122,8 @@ namespace VolcanoidsSDK.lib
             }
             else
             {
-                var baseRecipeTag = GameResources.Instance.Recipes.FirstOrDefault(s => s.name == baseRecipe);
+                var baseRecipeGuid = GUID.Parse(baseRecipe);
+                var baseRecipeTag = GameResources.Instance.Recipes.FirstOrDefault(s => s.AssetId == baseRecipeGuid);
                 recipe.RequiredUpgrades = baseRecipeTag.RequiredUpgrades;
             }
             if (recipeCategory != "")
@@ -129,12 +132,13 @@ namespace VolcanoidsSDK.lib
             }
             else
             {
-                var baseRecipeTag = GameResources.Instance.Recipes.FirstOrDefault(s => s.name == baseRecipe);
+                var baseRecipeGuid = GUID.Parse(baseRecipe);
+                var baseRecipeTag = GameResources.Instance.Recipes.FirstOrDefault(s => s.AssetId == baseRecipeGuid);
                 recipe.Categories = baseRecipeTag.Categories.ToArray();
             }
 
             AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = recipe, Guid = itemId, Labels = new string[0] } };
-            RuntimeAssetStorage.Add(assets, default);
+            RuntimeAssetStorage.Add(assets);
         }
     }
 }

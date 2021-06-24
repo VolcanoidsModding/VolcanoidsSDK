@@ -28,7 +28,7 @@ namespace VolcanoidsSDK.lib
         /// <param name="icon">                 The icon. </param>
         ///-------------------------------------------------------------------------------------------------
 
-        private void CreateItem(string codename, int maxstack, LocalizedString name, LocalizedString desc, string guidstring, string recipecategoryname, Sprite icon)
+        public static void CreateItem(string codename, int maxstack, LocalizedString name, LocalizedString desc, string guidstring, string recipecategoryname, Sprite icon)
         {
             var itemPassthrough = GUID.Parse(recipecategoryname);
             var recipecategory = GameResources.Instance.Items.FirstOrDefault(s => s.AssetId == itemPassthrough);
@@ -66,7 +66,7 @@ namespace VolcanoidsSDK.lib
         /// <param name="icon">                 The icon. </param>
         ///-------------------------------------------------------------------------------------------------
 
-        private void CreateItem(string codename, int maxstack, LocalizedString name, LocalizedString desc, GUID guidstring, string recipecategoryname, Sprite icon)
+        public static void CreateItem(string codename, int maxstack, LocalizedString name, LocalizedString desc, GUID guidstring, string recipecategoryname, Sprite icon)
         {
             var itemPassthrough = GUID.Parse(recipecategoryname);
             var recipecategory = GameResources.Instance.Items.FirstOrDefault(s => s.AssetId == itemPassthrough);
@@ -84,7 +84,7 @@ namespace VolcanoidsSDK.lib
 
             typeof(Definition).GetField("m_assetId", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance).SetValue(item, guidstring);
 
-            AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = item, Guid = guid, Labels = new string[0] } };
+            AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = item, Guid = guidstring, Labels = new string[0] } };
             RuntimeAssetStorage.Add(assets);
         }
     }

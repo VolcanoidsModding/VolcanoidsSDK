@@ -33,7 +33,7 @@ namespace VolcanoidsSDK.lib
         /// <param name="categories">   The categories. </param>
         ///-------------------------------------------------------------------------------------------------
 
-        private void CreateStation(FactoryType factoryType, string codename, int maxStack, LocalizedString name, LocalizedString desc, string guidString, Sprite icon, string variantname, RecipeCategory[] categories)
+        public static void CreateStation(FactoryType factoryType, string codename, int maxStack, LocalizedString name, LocalizedString desc, string guidString, Sprite icon, string variantname, RecipeCategory[] categories)
         {
             var category = GameResources.Instance.Items.FirstOrDefault(s => s.AssetId == productionStationGUID)?.Category;
             var item = ScriptableObject.CreateInstance<ItemDefinition>();
@@ -55,7 +55,7 @@ namespace VolcanoidsSDK.lib
             gridmodule.VariantName = variantname;
             gridmodule.Item = item;
 
-            var productionGroup = MelodicReferences.GetOrCreateTyping(factoryType);
+            var productionGroup = Typings.GetOrCreateTyping(factoryType);
 
             LocalizedString nameStr = name;
             LocalizedString descStr = desc;
@@ -91,7 +91,7 @@ namespace VolcanoidsSDK.lib
         /// <param name="categories">   The categories. </param>
         ///-------------------------------------------------------------------------------------------------
 
-        private void CreateStation(FactoryType factoryType, string codename, int maxStack, LocalizedString name, LocalizedString desc, GUID guidString, Sprite icon, string variantname, RecipeCategory[] categories)
+        public static void CreateStation(FactoryType factoryType, string codename, int maxStack, LocalizedString name, LocalizedString desc, GUID guidString, Sprite icon, string variantname, RecipeCategory[] categories)
         {
             var category = GameResources.Instance.Items.FirstOrDefault(s => s.AssetId == productionStationGUID)?.Category;
             var item = ScriptableObject.CreateInstance<ItemDefinition>();
@@ -113,7 +113,7 @@ namespace VolcanoidsSDK.lib
             gridmodule.VariantName = variantname;
             gridmodule.Item = item;
 
-            var productionGroup = MelodicReferences.GetOrCreateTyping(factoryType);
+            var productionGroup = Typings.GetOrCreateTyping(factoryType);
 
             LocalizedString nameStr = name;
             LocalizedString descStr = desc;
@@ -128,7 +128,7 @@ namespace VolcanoidsSDK.lib
 
             item.Prefabs = new GameObject[] { newmodule };
 
-            AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = item, Guid = guid, Labels = new string[0] } };
+            AssetReference[] assets = new AssetReference[] { new AssetReference() { Object = item, Guid = guidString, Labels = new string[0] } };
             RuntimeAssetStorage.Add(assets);
         }
     }
